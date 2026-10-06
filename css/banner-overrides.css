@@ -1,0 +1,25 @@
+/* No GIF banners — solid accent header only */
+#root {
+  background: transparent !important;
+  background-image: none !important;
+}
+
+body {
+  background: transparent !important;
+}
+
+.VWrapper .VLeftElements .VBanner {
+  background: linear-gradient(
+    135deg,
+    rgba(var(--menu-color), 0.45) 0%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+}
+
+.VWrapper .VLeftElements .VBanner img {
+  display: none !important;
+}
+
+.FooterLogo {
+  display: none !important;
+}

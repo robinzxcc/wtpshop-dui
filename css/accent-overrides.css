@@ -1,0 +1,4 @@
+/* Default accent: white (was pink) */
+:root {
+  --menu-color: 255, 255, 255;
+}

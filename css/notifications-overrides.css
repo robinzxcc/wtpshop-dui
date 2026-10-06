@@ -33,7 +33,7 @@
   top: 0;
   bottom: 0;
   width: 3px;
-  background: var(--toast-accent, rgb(var(--menu-color, 242, 109, 220)));
+  background: var(--toast-accent, rgb(var(--menu-color, 255, 255, 255)));
   border-radius: 3px 0 0 3px;
 }
 
@@ -99,7 +99,7 @@
   border-radius: 0 !important;
   box-shadow: none !important;
   opacity: 0.9;
-  background-color: var(--toast-accent, rgb(var(--menu-color, 242, 109, 220))) !important;
+  background-color: var(--toast-accent, rgb(var(--menu-color, 255, 255, 255))) !important;
 }
 
 .Notification.enter {

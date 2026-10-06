@@ -123,6 +123,8 @@
 }
 
 .Notification.enter {
+  opacity: 1 !important;
+  transform: translate(0, 0) scale(1) !important;
   animation: wtpshop-toast-in 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 

@@ -2,3 +2,61 @@
 :root {
   --menu-color: 255, 255, 255;
 }
+
+/* Main Menu tab + category strip */
+.VWrapper .VLeftElements .PCategories .PCategory.active {
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.22) 0%,
+    rgba(255, 255, 255, 0.08) 100%
+  ) !important;
+}
+
+.VWrapper .VLeftElements .PCategories {
+  border-bottom-color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.VWrapper .VLeftElements .VBanner {
+  border-bottom-color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Selected row highlight (fallback if inline styles lag) */
+.VTabs .VTab.Selected {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.VTabs .VTab .VOptions .Checkbox.Checked {
+  background-color: rgba(255, 255, 255, 0.35) !important;
+}
+
+.KBLWrapper .Header {
+  border-bottom-color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.KBLWrapper .Header .Icon {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Footer — circular WE THE PLUG logo */
+.VWrapper .VLeftElements .VLeftInnerElements .VFooter .FooterLogo {
+  height: 1.15vw !important;
+  width: 1.15vw !important;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 0.35vw rgba(255, 255, 255, 0.15);
+}
+
+.VWrapper .VLeftElements .VLeftInnerElements .VFooter .FooterInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.35vw;
+}
+
+.VWrapper .VLeftElements .VLeftInnerElements .VFooter .Name {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+.VWrapper .VLeftElements .VLeftInnerElements .VFooter .Indicator {
+  color: rgba(255, 255, 255, 0.75) !important;
+}

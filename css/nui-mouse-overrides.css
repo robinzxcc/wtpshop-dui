@@ -1,0 +1,80 @@
+body.wtp-nui-mouse,
+body.wtp-nui-mouse #root {
+  cursor: default !important;
+}
+
+body.wtp-nui-mouse .VWrapper {
+  cursor: default;
+  flex-direction: row;
+  align-items: flex-start;
+  left: 1.8vw;
+  top: 50%;
+  transform: translateY(-50%);
+  gap: 0.55vw;
+  max-width: calc(100vw - 3.6vw);
+}
+
+body.wtp-nui-mouse .VLeftElements {
+  flex-shrink: 0;
+}
+
+body.wtp-nui-mouse .VLeftElements .VLeftInnerElements .VTabs {
+  max-height: min(72vh, 28vw);
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+body.wtp-nui-mouse .VTabs .VTab {
+  cursor: pointer;
+  pointer-events: auto;
+  transition: background 0.12s ease;
+}
+
+body.wtp-nui-mouse .VTabs .VTab:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+body.wtp-nui-mouse .VTabs .VTab.Selected {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: inset 3px 0 0 rgb(var(--menu-color, 255, 255, 255));
+}
+
+body.wtp-nui-mouse .PCategories .PCategory {
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+body.wtp-nui-mouse .PCategories .PCategory:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+body.wtp-nui-mouse .VTabs .VTab .Checkbox,
+body.wtp-nui-mouse .VTabs .VTab .VOptions .Checkbox {
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+body.wtp-nui-mouse .VTabs .VTab .Checkbox:hover,
+body.wtp-nui-mouse .VTabs .VTab .VOptions .Checkbox:hover {
+  filter: brightness(1.15);
+}
+
+body.wtp-nui-mouse .MetaDataContainer {
+  position: relative !important;
+  right: auto !important;
+  top: auto !important;
+  display: flex !important;
+  flex-shrink: 0;
+  width: 14vw !important;
+  min-width: 220px;
+  max-width: 280px;
+  min-height: 14vw;
+  margin-top: 5.7vw;
+  pointer-events: auto;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+body.wtp-nui-mouse .VDesc {
+  pointer-events: none;
+}

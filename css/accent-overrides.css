@@ -1,9 +1,7 @@
-/* Default accent: white (was pink) */
 :root {
   --menu-color: 255, 255, 255;
 }
 
-/* Main Menu tab + category strip */
 .VWrapper .VLeftElements .PCategories .PCategory.active {
   background: linear-gradient(
     0deg,
@@ -20,7 +18,6 @@
   border-bottom-color: rgba(255, 255, 255, 0.85) !important;
 }
 
-/* Selected row highlight (fallback if inline styles lag) */
 .VTabs .VTab.Selected {
   background: rgba(255, 255, 255, 0.06);
 }
@@ -37,7 +34,6 @@
   color: rgba(255, 255, 255, 0.95) !important;
 }
 
-/* Footer — circular WE THE PLUG logo */
 .VWrapper .VLeftElements .VLeftInnerElements .VFooter .FooterLogo {
   height: 1.15vw !important;
   width: 1.15vw !important;

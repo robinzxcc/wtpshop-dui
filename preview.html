@@ -75,24 +75,29 @@
         post({
           action: "showUI",
           visible: true,
+          layout: "multi",
           inputMode: "nui",
           username: "PREVIEW",
-          expiration: "N/A",
+          rootIndex: 2,
+          categoryIndex: 0,
           index: 0,
-          path: ["Settings"],
-          elements: [
-            { type: "button", label: "Example action" },
-            { type: "checkbox", label: "Example toggle", checked: false },
-            {
-              type: "checkbox",
-              label: "> 7 - PlayerOne",
-              checked: true,
-              metaData: [
-                { key: "Distance", value: "42m" },
-                { key: "Health", value: 200, color: "0, 255, 17" },
-                { key: "Armour", value: 50, color: "0, 132, 255" },
-              ],
-            },
+          rootItems: [
+            { label: "Self Options" },
+            { label: "Online Options" },
+            { label: "Troll / Risky" },
+          ],
+          categoryLabels: ["List", "Safe", "Risky"],
+          midTitle: "Tools",
+          sideTitle: "Actions",
+          midElements: [
+            { type: "button", label: "Kick From Vehicle" },
+            { type: "button", label: "Mass Spawn" },
+          ],
+          sideElements: [
+            { type: "divider", label: "Kill Player" },
+            { type: "button", label: "New Rage Kill" },
+            { type: "button", label: "New Rage 2 Kill" },
+            { type: "button", label: "New Rage 3 Kill" },
           ],
         });
       };

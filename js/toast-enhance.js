@@ -4,7 +4,7 @@
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>',
     info: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>',
     error:
-      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>',
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>',
   };
 
   function parseDurationMs(node) {
@@ -27,6 +27,20 @@
     if (titleEl) body.appendChild(titleEl);
     if (descEl) body.appendChild(descEl);
     content.appendChild(body);
+  }
+
+  function cleanUpExited(node) {
+    if (!node || node.dataset.exitHandled) return;
+    node.dataset.exitHandled = "true";
+    node.style.pointerEvents = "none";
+    setTimeout(function () {
+      if (node && node.parentNode) {
+        node.style.display = "none";
+        try {
+          node.remove();
+        } catch (e) {}
+      }
+    }, 320);
   }
 
   function enhance(node) {
@@ -72,6 +86,10 @@
       bar.style.width = "100%";
       bar.style.animation = "";
     }
+
+    if (node.classList.contains("exit")) {
+      cleanUpExited(node);
+    }
   }
 
   function scan(root) {
@@ -82,11 +100,23 @@
 
   new MutationObserver(function (mutations) {
     mutations.forEach(function (m) {
-      m.addedNodes.forEach(function (n) {
-        if (n.nodeType !== 1) return;
-        if (n.classList && n.classList.contains("Notification")) enhance(n);
-        else scan(n);
-      });
+      if (m.type === "childList") {
+        m.addedNodes.forEach(function (n) {
+          if (n.nodeType !== 1) return;
+          if (n.classList && n.classList.contains("Notification")) enhance(n);
+          else scan(n);
+        });
+      } else if (m.type === "attributes" && m.attributeName === "class") {
+        var target = m.target;
+        if (target && target.classList && target.classList.contains("exit")) {
+          cleanUpExited(target);
+        }
+      }
     });
-  }).observe(document.documentElement, { childList: true, subtree: true });
+  }).observe(document.documentElement, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ["class"]
+  });
 })();

@@ -1,15 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,500;0,9..40,600;0,9..40,700&display=swap");
 
 .NotificationsWrapper {
-  top: 24px;
-  bottom: auto;
-  right: 24px;
-  left: auto;
-  gap: 8px;
-  align-items: flex-end;
-  max-width: min(400px, calc(100vw - 40px));
-  pointer-events: none;
-  z-index: 99999;
+  position: fixed !important;
+  top: 24px !important;
+  bottom: auto !important;
+  right: 24px !important;
+  left: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  align-items: flex-end !important;
+  max-width: min(400px, calc(100vw - 40px)) !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  pointer-events: none !important;
+  z-index: 99999 !important;
 }
 
 .Notification {
@@ -19,16 +26,17 @@
   max-width: 340px;
   padding: 0;
   font-family: "DM Sans", system-ui, sans-serif;
-  background: rgba(14, 14, 16, 0.96) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  backdrop-filter: blur(20px) saturate(1.2);
-  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  background: #0e0e11 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
   box-shadow:
-    0 16px 48px rgba(0, 0, 0, 0.5),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    0 6px 20px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
   overflow: hidden;
   pointer-events: auto;
+  opacity: 0;
+  transform: translateY(-8px) scale(0.98);
+  transition: opacity 0.28s ease, transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .Notification::before {
@@ -38,7 +46,6 @@
   width: 2px;
   border-radius: 2px;
   background: rgb(var(--menu-color, 255, 255, 255));
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.35);
 }
 
 .Notification.success {
@@ -147,37 +154,19 @@
   transform: scaleX(1);
   transform-origin: left center;
   background: var(--toast-accent) !important;
-  box-shadow: 0 0 10px var(--toast-accent-dim);
   animation: wtp-toast-progress var(--wtp-toast-ms, 3500ms) linear forwards !important;
   animation-name: wtp-toast-progress !important;
 }
 
 .Notification.enter {
   opacity: 1 !important;
-  transform: none !important;
-  animation: wtpshop-toast-in 0.36s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  transform: translateY(0) scale(1) !important;
 }
 
 .Notification.exit {
-  animation: wtpshop-toast-out 0.28s ease forwards;
-}
-
-@keyframes wtpshop-toast-in {
-  from {
-    opacity: 0;
-    transform: translateY(-8px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes wtpshop-toast-out {
-  to {
-    opacity: 0;
-    transform: translateY(-6px);
-  }
+  opacity: 0 !important;
+  transform: translateY(-8px) scale(0.98) !important;
+  pointer-events: none !important;
 }
 
 @keyframes wtp-toast-progress {
